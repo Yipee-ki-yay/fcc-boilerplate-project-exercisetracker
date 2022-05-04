@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 require('dotenv').config()
 const bodyParser = require('body-parser');
-const { randomUUID } = require('crypto');
+const Uuid = require('uuid')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,7 +25,7 @@ app.post('/api/users', function(req, res) {
 
   const newUser = {
     username,
-    _id: randomUUID()
+    _id: Uuid.v4()
   }
   users.push(newUser)
 
